@@ -6,7 +6,7 @@ class IiifController < ApplicationController
   end
 
   def self.min_tile_size_for_low_res
-    ENV['MIN_TILE_SIZE_FOR_LOW_RES'] || 800
+    ENV['MIN_TILE_SIZE_FOR_LOW_RES'] || 2000
   end
 
   def show
