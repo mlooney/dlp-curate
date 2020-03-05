@@ -12,8 +12,16 @@ class IiifController < ApplicationController
   def show
     @iiif_url ||= iiif_url
     Rails.logger.info("Trying to proxy image from #{@iiif_url}")
-    response.set_header('Access-Control-Allow-Origin', '*')
+    if visibility == "authenticated"
+      response.set_header('Access-Control-Allow-Origin', lux_base_url)
+    else
+      response.set_header('Access-Control-Allow-Origin', '*')
+    end
     send_data HTTP.get(@iiif_url).body, type: 'image/jpeg', x_sendfile: true, disposition: 'inline'
+  end
+
+  def lux_base_url
+    (ENV['LUX_BASE_URL'] || 'localhost:3000').to_s
   end
 
   def info

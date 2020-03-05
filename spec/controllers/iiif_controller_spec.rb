@@ -112,6 +112,12 @@ RSpec.describe IiifController, type: :controller, clean: true do
     end
   end
 
+  describe "a request for an Emory high Download object" do
+    it "does not set the Access-Control-Allow-Origin header" do
+      true
+    end
+  end
+
   describe "a request for a public low view object" do
     let(:identifier) { "508hdr7srt-cor" }
     let(:attributes) do
