@@ -21,7 +21,7 @@ class IiifController < ApplicationController
   end
 
   def lux_base_url
-    (ENV['LUX_BASE_URL'] || 'localhost:3000').to_s
+    (ENV['LUX_BASE_URL'] || 'https://digital-arch.library.emory.edu').to_s
   end
 
   def info
